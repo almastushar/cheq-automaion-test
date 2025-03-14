@@ -29,7 +29,8 @@ jobs:
 
     - name: Run Pytest tests
       run: |
-        python run_tests.py
+        python conftest.py
+        pytest --html=report/report.html
 
     - name: Upload Pytest Report
       if: always()
