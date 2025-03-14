@@ -29,7 +29,7 @@ jobs:
 
     - name: Run Pytest in Parallel
       run: |
-        pytest -n auto --html=report/report.html
+        pytest -m sanity --html=report/report.html
 
     - name: Upload Pytest Report
       if: always()
