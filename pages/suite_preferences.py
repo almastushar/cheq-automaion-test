@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 from locators.locators import Locators
-import time
 from selenium.webdriver.support import expected_conditions as EC
 
 
