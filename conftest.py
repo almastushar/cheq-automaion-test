@@ -14,7 +14,7 @@ from utils.common_func import get_latest_log_file, extract_logs
 @pytest.fixture(scope='function')
 def config():
     cur_dir = os.path.dirname(os.path.realpath(__file__))
-    _file_path = str(os.path.abspath(cur_dir))
+    _file_path = os.path.abspath(cur_dir)
     _file = _file_path + "\\" + "config.ini"
     parser = configparser.ConfigParser()
     parser.read(_file)
