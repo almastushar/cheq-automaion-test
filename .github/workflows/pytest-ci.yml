@@ -28,7 +28,7 @@ jobs:
         pip install --no-cache-dir --no-build-isolation -r requirements.txt
 
     - name: Verify Python Module Discovery
-      run: python -c "import utils.datareader;
+      run: python -c "import utils.datareader;"
 
     - name: Run Pytest tests
       run: |
