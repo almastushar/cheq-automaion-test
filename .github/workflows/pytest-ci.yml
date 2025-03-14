@@ -29,11 +29,12 @@ jobs:
 
     - name: Run Pytest tests
       run: |
-        pytest --confcutdir=./ --html=report/report.html
+        pytest --html=report/report.html
+      working-directory: project_root
 
     - name: Upload Pytest Report
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: pytest-results
-        path: report/report.html
+        path: report
