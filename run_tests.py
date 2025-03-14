@@ -4,6 +4,7 @@ import sys
 
 # Ensure that project directories are accessible
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+import tests.conftest  # Force import
 
 
 def run_tests():
