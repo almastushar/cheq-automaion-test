@@ -26,7 +26,8 @@ class OrderPreCheck:
         if total_new_order is not None:
             for i in range(total_new_order):
                 locator = "((//h6[contains(text(), 'Suite (South)')]/following-sibling::div/p[contains(text(), " \
-                          "'New')])[{count}]/preceding::button[text()='View Details'])[1]".format(count=i+1)
+                          "'New')])[{count}]/parent::div/preceding-sibling::div/button[text()='View Details'])[1]".format(
+                    count=i + 1)
                 element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
                 self.driver.execute_script("window.scrollTo(0, arguments[0].getBoundingClientRect().top + "
                                            "window.pageYOffset);", element)
