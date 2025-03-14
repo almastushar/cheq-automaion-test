@@ -10,7 +10,7 @@ config = configparser.ConfigParser()
 config.read("config.ini")
 
 locator = configparser.ConfigParser()
-config.read("locator.ini")
+locator.read("locator.ini")
 
 
 class LOGIN:
