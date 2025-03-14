@@ -30,9 +30,9 @@ jobs:
     - name: Debug File System
       run: ls -R
 
-    - name: Run Pytest Sanity
+    - name: Run Pytest tests
       run: |
-        pytest -m sanity --html=report/report.html
+        pytest tests --html=report/report.html
 
     - name: Upload Pytest Report
       if: always()
