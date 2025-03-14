@@ -1,3 +1,4 @@
+import configparser
 import time
 
 from selenium.webdriver.common.by import By
@@ -5,9 +6,12 @@ from selenium.webdriver.common.by import By
 from locators.locators import Locators
 from selenium.webdriver.support import expected_conditions as EC
 
+config = configparser.ConfigParser()
+config.read("config.ini")
+
 
 class LOGIN:
-    def __init__(self, driver, config, wait):
+    def __init__(self, driver, wait):
         self.locators = Locators()
         self.locator = self.locators.locator()
         self.driver = driver
