@@ -28,7 +28,7 @@ jobs:
         pip install --no-cache-dir --no-build-isolation -r requirements.txt
 
     - name: Set PYTHONPATH
-      run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
+      run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 
     - name: Run Pytest tests
       run: |
