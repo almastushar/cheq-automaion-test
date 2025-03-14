@@ -29,7 +29,7 @@ jobs:
 
     - name: Run Pytest tests
       run: |
-        pytest tests --setup-show --html=report/report.html
+        pytest tests --cache-clear --html=report/report.html
 
     - name: Upload Pytest Report
       if: always()
