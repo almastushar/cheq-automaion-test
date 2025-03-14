@@ -20,8 +20,8 @@ class ChooseEvent:
         self.locator_verify_chosen_event = locator['CHEQ-LOCATOR']['verify_header']
 
     def choose_event(self, event_name):
-        locator = "//span[text()='{event_name}']/ancestor::label/span/input[@type='radio']".format(event_name=event_name)
-        self.driver.find_element(By.XPATH, locator).click()
+        locators = "//span[text()='{event_name}']/ancestor::label/span/input[@type='radio']".format(event_name=event_name)
+        self.driver.find_element(By.XPATH, locators).click()
         self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_continue_button)))
         self.driver.find_element(By.XPATH, self.locator_continue_button).click()
         time.sleep(2)

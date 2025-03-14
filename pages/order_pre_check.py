@@ -25,18 +25,20 @@ class OrderPreCheck:
     def pre_check_order(self, suite):
         self.driver.find_element(By.XPATH, self.locator_orders_tab).click()
         time.sleep(3)
-        locator = "//h6[contains(text(), '{suite}')]/following-sibling::div/p[contains(text(), 'New')]".format(suite=suite)
-        elements = self.driver.find_elements(By.XPATH, locator)
+        locators = "//h6[contains(text(), '{suite}')]/following-sibling::div/p[contains(text(), 'New')]".format(suite=suite)
+        print(str(locator))
+        elements = self.driver.find_elements(By.XPATH, locators)
         total_new_order = len(elements)
+        print(total_new_order)
         if total_new_order is not None:
             for i in range(total_new_order):
-                locator = "((//h6[contains(text(), 'Suite (South)')]/following-sibling::div/p[contains(text(), " \
+                locators = "((//h6[contains(text(), 'Suite (South)')]/following-sibling::div/p[contains(text(), " \
                           "'New')])[{count}]/parent::div/preceding-sibling::div/button[text()='View Details'])[1]".format(
                     count=i+1)
-                element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
+                element = self.wait.until(EC.visibility_of_element_located((By.XPATH, locators)))
                 self.driver.execute_script("window.scrollTo(0, arguments[0].getBoundingClientRect().top + "
                                            "window.pageYOffset);", element)
-                self.driver.find_element(By.XPATH, locator).click()
+                self.driver.find_element(By.XPATH, locators).click()
                 self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_edit_order_button)))
                 self.driver.find_element(By.XPATH, self.locator_edit_order_button).click()
                 self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_cancel_order_button)))
@@ -45,7 +47,7 @@ class OrderPreCheck:
                 self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_cancel_confirmation_button)))
                 self.driver.find_element(By.XPATH, self.locator_cancel_confirmation_button).click()
                 self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_start_order_button)))
-            time.sleep(2)
+            time.sleep(4)
             self.driver.find_element(By.XPATH, self.locator_start_order_button).click()
             time.sleep(2)
         else:

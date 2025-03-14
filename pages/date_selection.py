@@ -22,9 +22,9 @@ class DateSelection:
     def select_date(self, date, suite):
         pre_check = OrderPreCheck(self.driver, self.wait)
         pre_check.pre_check_order(suite)
-        locator = "//button[text()='{date}']".format(date=date)
-        self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
-        self.driver.find_element(By.XPATH, locator).click()
+        locators = "//button[text()='{date}']".format(date=date)
+        self.wait.until(EC.visibility_of_element_located((By.XPATH, locators)))
+        self.driver.find_element(By.XPATH, locators).click()
 
     def verify_date_selection(self):
         self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_verify_date_selection)))

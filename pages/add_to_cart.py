@@ -28,13 +28,13 @@ class AddToCart:
         elements = self.driver.find_elements(By.XPATH, self.locator_category)
         total_category = len(elements)
         for i in range(total_category):
-            locator = "(//h2/following::button[1])[{count}]".format(
+            locators = "(//h2/following::button[1])[{count}]".format(
                 count=i+1)
             element = self.wait.until(EC.visibility_of_element_located((By.XPATH, "(//h2)[{count}]".format(
                 count=i+1))))
             self.driver.execute_script("window.scrollTo(0, arguments[0].getBoundingClientRect().top + "
                                        "window.pageYOffset);", element)
-            self.driver.find_element(By.XPATH, locator).click()
+            self.driver.find_element(By.XPATH, locators).click()
             self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_add_to_order_button)))
             self.driver.find_element(By.XPATH, self.locator_add_to_order_button).click()
             time.sleep(3)
