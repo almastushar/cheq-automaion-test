@@ -9,6 +9,9 @@ from selenium.webdriver.support import expected_conditions as EC
 config = configparser.ConfigParser()
 config.read("config.ini")
 
+locator = configparser.ConfigParser()
+config.read("locator.ini")
+
 
 class LOGIN:
     def __init__(self, driver, wait):
@@ -17,14 +20,14 @@ class LOGIN:
         self.driver = driver
         self.wait = wait
         self.url = config['CHEQ-UAT']['host'] + config['CHEQ-UAT']['login']
-        self.locator_email = self.locator['CHEQ-LOCATOR']['email']
-        self.locator_password = self.locator['CHEQ-LOCATOR']['password']
-        self.locator_btn_login = self.locator['CHEQ-LOCATOR']['btn_login']
-        self.locator_verify_successful_login = self.locator['CHEQ-LOCATOR']['verify_header']
-        self.locator_verify_unsuccessful_login_for_invalid_credential = self.locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_invalid_credential']
-        self.locator_verify_unsuccessful_login_for_pass_less_than_least_characters = self.locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_pass']
-        self.locator_verify_unsuccessful_login_for_blank_credential_email = self.locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_email']
-        self.locator_verify_unsuccessful_login_for_blank_credential_pass = self.locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_pass']
+        self.locator_email = locator['CHEQ-LOCATOR']['email']
+        self.locator_password = locator['CHEQ-LOCATOR']['password']
+        self.locator_btn_login = locator['CHEQ-LOCATOR']['btn_login']
+        self.locator_verify_successful_login = locator['CHEQ-LOCATOR']['verify_header']
+        self.locator_verify_unsuccessful_login_for_invalid_credential = locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_invalid_credential']
+        self.locator_verify_unsuccessful_login_for_pass_less_than_least_characters = locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_pass']
+        self.locator_verify_unsuccessful_login_for_blank_credential_email = locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_email']
+        self.locator_verify_unsuccessful_login_for_blank_credential_pass = locator['CHEQ-LOCATOR']['verify_unsuccessful_login_for_pass']
 
     def navigate_to_login_page(self):
         self.driver.get(url=self.url)
