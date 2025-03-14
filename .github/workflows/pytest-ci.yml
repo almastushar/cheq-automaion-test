@@ -29,7 +29,7 @@ jobs:
 
     - name: Run Pytest tests
       run: |
-        pytest --html=report/report.html
+        pytest --confcutdir=./ --html=report/report.html
 
     - name: Upload Pytest Report
       if: always()
