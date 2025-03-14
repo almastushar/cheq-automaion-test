@@ -2,15 +2,8 @@ import ast
 
 from loguru import logger
 
-from pages.add_to_cart import AddToCart
-from pages.choose_event import ChooseEvent
-from pages.date_selection import DateSelection
-from pages.input_credit_card_details import CreditCardDetails
 from pages.login import LOGIN
-from pages.pre_order import PreOrder
-from pages.suite_preferences import SuitePreferences
-from pages.suite_selection import SuiteSelection
-from utils.datareader import Data
+from tests.datareader import Data
 import sys
 import pytest
 
