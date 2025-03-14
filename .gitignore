@@ -1,0 +1,12 @@
+/screenshots/
+/venv/
+/.pytest_cache/
+/.idea/
+/__pycache__/
+/utils/__pycache__/
+/utils/.pytest_cache/
+/tests/__pycache__/
+/tests/.pytest_cache/
+/report/assets/
+/report/
+/logs/
