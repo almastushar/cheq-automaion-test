@@ -29,7 +29,7 @@ class TestCheqInvalidCC:
     @logger.catch(onerror=lambda _: sys.exit(1))
     def test_e2e_with_invalid_cc_details(self, driver, config, wait):
         # Successful Login
-        login = LOGIN(driver, config, wait)
+        login = LOGIN(driver, wait)
         print("Navigate to login page")
         login.navigate_to_login_page()
         login.login(email=self.data['email'], password=self.data['password'])
