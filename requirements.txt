@@ -8,7 +8,5 @@ webdriver_manager
 pytest-order
 loguru
 pytest-xdist
-sys
 ast
-time
 configparser
