@@ -15,8 +15,8 @@ locator.read("locators.ini")
 
 class LOGIN:
     def __init__(self, driver, wait):
-        self.locators = Locators()
-        self.locator = self.locators.locator()
+        # self.locators = Locators()
+        # self.locator = self.locators.locator()
         self.driver = driver
         self.wait = wait
         self.url = config['CHEQ-UAT']['host'] + config['CHEQ-UAT']['login']

@@ -1,3 +1,4 @@
+import configparser
 import time
 
 from selenium.webdriver.common.by import By
@@ -5,17 +6,20 @@ from selenium.webdriver.common.by import By
 from locators.locators import Locators
 from selenium.webdriver.support import expected_conditions as EC
 
+locator = configparser.ConfigParser()
+locator.read("locators.ini")
+
 
 class SuiteSelection:
     def __init__(self, driver, wait):
-        self.locators = Locators()
-        self.locator = self.locators.locator()
+        # self.locators = Locators()
+        # self.locator = self.locators.locator()
         self.driver = driver
         self.wait = wait
-        self.locator_continue_button = self.locator['CHEQ-LOCATOR']['continue_button']
-        self.locator_pop_continue_button = self.locator['CHEQ-LOCATOR']['pop_continue_button']
-        self.locator_save_button = self.locator['CHEQ-LOCATOR']['save_button']
-        self.locator_verify_suite_selection = self.locator['CHEQ-LOCATOR']['verify_title']
+        self.locator_continue_button = locator['CHEQ-LOCATOR']['continue_button']
+        self.locator_pop_continue_button = locator['CHEQ-LOCATOR']['pop_continue_button']
+        self.locator_save_button = locator['CHEQ-LOCATOR']['save_button']
+        self.locator_verify_suite_selection = locator['CHEQ-LOCATOR']['verify_title']
 
     def select_suite(self, suite_name):
         locator = "//span[text()='{suite_name}']/ancestor::label/span/input[@type='radio']".format(suite_name=suite_name)
