@@ -1,4 +1,5 @@
 import ast
+import configparser
 
 from loguru import logger
 
@@ -7,10 +8,13 @@ from utils.datareader import Data
 import sys
 import pytest
 
+testdata = configparser.ConfigParser()
+testdata.read("data.ini")
+
 
 class TestCheqInvalidCredential:
-    td = Data()
-    testdata = td.data()
+    # td = Data()
+    # testdata = td.data()
     data = ast.literal_eval(testdata['CHEQ-DATA']['invalid_data_credential'])
 
     @pytest.mark.order(2)
