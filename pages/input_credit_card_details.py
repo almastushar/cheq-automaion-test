@@ -48,6 +48,7 @@ class CreditCardDetails:
         return elem
 
     def verify_failed_to_complete_order(self, verify_order_completed_text):
+        self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_verify_purchase_failed_with_cc)))
         time.sleep(2)
         elem = verify_order_completed_text in self.driver.find_element(By.XPATH, self.locator_verify_purchase_failed_with_cc).text
         return elem
