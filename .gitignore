@@ -10,3 +10,5 @@
 /report/assets/
 /report/
 /logs/
+locators/__pycache__/
+pages/__pycache__/
