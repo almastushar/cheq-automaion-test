@@ -3,7 +3,7 @@ import ast
 from loguru import logger
 
 from pages.login import LOGIN
-from tests.datareader import Data
+from utils.datareader import Data
 import sys
 import pytest
 

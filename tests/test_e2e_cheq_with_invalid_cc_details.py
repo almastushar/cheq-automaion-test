@@ -10,7 +10,7 @@ from pages.login import LOGIN
 from pages.pre_order import PreOrder
 from pages.suite_preferences import SuitePreferences
 from pages.suite_selection import SuiteSelection
-from tests.datareader import Data
+from utils.datareader import Data
 import sys
 import pytest
 
