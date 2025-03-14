@@ -27,7 +27,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Pytest in Parallel
+    - name: Run Pytest Sanity
       run: |
         pytest -m sanity --html=report/report.html
 
