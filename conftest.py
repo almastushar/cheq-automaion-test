@@ -15,7 +15,8 @@ from utils.common_func import get_latest_log_file, extract_logs
 def config():
     cur_dir = os.path.dirname(os.path.realpath(__file__))
     _file_path = str(os.path.abspath(cur_dir))
-    _file = _file_path + "\\" + "config.ini"
+    # _file = _file_path + "\\" + "config.ini"
+    _file = _file_path + "/" + "config.ini"
     parser = configparser.ConfigParser()
     parser.read(_file)
     return parser
@@ -25,7 +26,8 @@ def config():
 def data():
     cur_dir = os.path.dirname(os.path.realpath(__file__))
     _file_path = str(os.path.abspath(cur_dir))
-    _file = _file_path + "\\" + "data.ini"
+    # _file = _file_path + "\\" + "data.ini"
+    _file = _file_path + "/" + "data.ini"
     parser = configparser.ConfigParser()
     parser.read(_file)
     return parser
