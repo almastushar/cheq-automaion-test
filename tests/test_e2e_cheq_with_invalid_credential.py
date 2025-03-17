@@ -31,7 +31,7 @@ class TestCheqInvalidCredential:
     @logger.catch(onerror=lambda _: sys.exit(1))
     def test_e2e_with_invalid_pass_least_characters(self, driver, config, wait):
         # Unsuccessful Login
-        login = LOGIN(driver, wait)
+        login = LOGIN(driver, config, wait)
         print("Navigate to login page")
         login.navigate_to_login_page()
         login.login(email=self.data['email'], password=self.data['least_password'])
@@ -43,7 +43,7 @@ class TestCheqInvalidCredential:
     @logger.catch(onerror=lambda _: sys.exit(1))
     def test_e2e_with_blank_email_pass(self, driver, config, wait):
         # Unsuccessful Login
-        login = LOGIN(driver, wait)
+        login = LOGIN(driver, config, wait)
         print("Navigate to login page")
         login.navigate_to_login_page()
         login.login(email=self.data['blank_email'], password=self.data['blank_password'])
