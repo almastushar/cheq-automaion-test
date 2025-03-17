@@ -7,22 +7,19 @@ from selenium.webdriver.common.by import By
 from locators.locators import Locators
 from selenium.webdriver.support import expected_conditions as EC
 
-locator = configparser.ConfigParser()
-locator.read("locators.ini")
-
 
 class AddToCart:
     def __init__(self, driver, wait):
-        # self.locators = Locators()
-        # self.locator = self.locators.locator()
+        self.locators = Locators()
+        self.locator = self.locators.locator()
         self.driver = driver
         self.wait = wait
-        self.locator_category = locator['CHEQ-LOCATOR']['category']
-        self.locator_add_to_order_button = locator['CHEQ-LOCATOR']['add_to_order_button']
-        self.locator_view_cart_button = locator['CHEQ-LOCATOR']['view_cart_button']
-        self.locator_save_pre_order_button = locator['CHEQ-LOCATOR']['save_pre_order_button']
-        self.locator_verify_add_to_cart = locator['CHEQ-LOCATOR']['verify_title']
-        self.locator_order_amount = locator['CHEQ-LOCATOR']['order_amount']
+        self.locator_category = self.locator['CHEQ-LOCATOR']['category']
+        self.locator_add_to_order_button = self.locator['CHEQ-LOCATOR']['add_to_order_button']
+        self.locator_view_cart_button = self.locator['CHEQ-LOCATOR']['view_cart_button']
+        self.locator_save_pre_order_button = self.locator['CHEQ-LOCATOR']['save_pre_order_button']
+        self.locator_verify_add_to_cart = self.locator['CHEQ-LOCATOR']['verify_title']
+        self.locator_order_amount = self.locator['CHEQ-LOCATOR']['order_amount']
 
     def add_items_to_cart(self):
         elements = self.driver.find_elements(By.XPATH, self.locator_category)

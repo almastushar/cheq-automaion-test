@@ -6,20 +6,17 @@ from selenium.webdriver.common.by import By
 from locators.locators import Locators
 from selenium.webdriver.support import expected_conditions as EC
 
-locator = configparser.ConfigParser()
-locator.read("locators.ini")
-
 
 class SuiteSelection:
     def __init__(self, driver, wait):
-        # self.locators = Locators()
-        # self.locator = self.locators.locator()
+        self.locators = Locators()
+        self.locator = self.locators.locator()
         self.driver = driver
         self.wait = wait
-        self.locator_continue_button = locator['CHEQ-LOCATOR']['continue_button']
-        self.locator_pop_continue_button = locator['CHEQ-LOCATOR']['pop_continue_button']
-        self.locator_save_button = locator['CHEQ-LOCATOR']['save_button']
-        self.locator_verify_suite_selection = locator['CHEQ-LOCATOR']['verify_title']
+        self.locator_continue_button = self.locator['CHEQ-LOCATOR']['continue_button']
+        self.locator_pop_continue_button = self.locator['CHEQ-LOCATOR']['pop_continue_button']
+        self.locator_save_button = self.locator['CHEQ-LOCATOR']['save_button']
+        self.locator_verify_suite_selection = self.locator['CHEQ-LOCATOR']['verify_title']
 
     def select_suite(self, suite_name):
         time.sleep(2)

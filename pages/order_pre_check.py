@@ -6,27 +6,23 @@ from locators.locators import Locators
 import time
 from selenium.webdriver.support import expected_conditions as EC
 
-locator = configparser.ConfigParser()
-locator.read("locators.ini")
-
 
 class OrderPreCheck:
     def __init__(self, driver, wait):
-        # self.locators = Locators()
-        # self.locator = self.locators.locator()
+        self.locators = Locators()
+        self.locator = self.locators.locator()
         self.driver = driver
         self.wait = wait
-        self.locator_orders_tab = locator['CHEQ-LOCATOR']['orders_tab']
-        self.locator_edit_order_button = locator['CHEQ-LOCATOR']['edit_order_button']
-        self.locator_cancel_order_button = locator['CHEQ-LOCATOR']['cancel_order_button']
-        self.locator_cancel_confirmation_button = locator['CHEQ-LOCATOR']['cancel_confirmation_button']
-        self.locator_start_order_button = locator['CHEQ-LOCATOR']['start_order_button']
+        self.locator_orders_tab = self.locator['CHEQ-LOCATOR']['orders_tab']
+        self.locator_edit_order_button = self.locator['CHEQ-LOCATOR']['edit_order_button']
+        self.locator_cancel_order_button = self.locator['CHEQ-LOCATOR']['cancel_order_button']
+        self.locator_cancel_confirmation_button = self.locator['CHEQ-LOCATOR']['cancel_confirmation_button']
+        self.locator_start_order_button = self.locator['CHEQ-LOCATOR']['start_order_button']
 
     def pre_check_order(self, suite):
         self.driver.find_element(By.XPATH, self.locator_orders_tab).click()
         time.sleep(3)
         locators = "//h6[contains(text(), '{suite}')]/following-sibling::div/p[contains(text(), 'New')]".format(suite=suite)
-        print(str(locator))
         elements = self.driver.find_elements(By.XPATH, locators)
         total_new_order = len(elements)
         print(total_new_order)

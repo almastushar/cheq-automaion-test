@@ -15,13 +15,10 @@ from utils.datareader import Data
 import sys
 import pytest
 
-testdata = configparser.ConfigParser()
-testdata.read("data.ini")
-
 
 class TestCheqValidData:
-    # td = Data()
-    # testdata = td.data()
+    td = Data()
+    testdata = td.data()
     data = ast.literal_eval(testdata['CHEQ-DATA']['valid_data'])
 
     @pytest.mark.order(1)
@@ -30,7 +27,7 @@ class TestCheqValidData:
     @logger.catch(onerror=lambda _: sys.exit(1))
     def test_e2e_with_valid_data(self, driver, config, wait):
         # Successful Login
-        login = LOGIN(driver, wait)
+        login = LOGIN(driver, config, wait)
         print("Navigate to login page")
         login.navigate_to_login_page()
         login.login(email=self.data['email'], password=self.data['password'])
