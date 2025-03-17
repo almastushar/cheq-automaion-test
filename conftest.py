@@ -27,8 +27,6 @@ def data():
     _file_path = str(os.path.abspath(cur_dir))
     _file_path = os.path.abspath(cur_dir)
     _file = os.path.join(_file_path, "data.ini")
-    # _file = _file_path + "\\" + "data.ini"
-    # _file = _file_path + "/" + "data.ini"
     parser = configparser.ConfigParser()
     parser.read(_file)
     return parser
