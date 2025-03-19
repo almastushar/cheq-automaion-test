@@ -36,6 +36,7 @@ class OrderPreCheck:
                                            "window.pageYOffset);", element)
                 self.driver.find_element(By.XPATH, locators).click()
                 self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_edit_order_button)))
+                time.sleep(2)
                 self.driver.find_element(By.XPATH, self.locator_edit_order_button).click()
                 self.wait.until(EC.visibility_of_element_located((By.XPATH, self.locator_cancel_order_button)))
                 time.sleep(2)
